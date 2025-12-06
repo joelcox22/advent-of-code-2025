@@ -22,20 +22,20 @@ let counter = 0;
 
 for (let y = 0; y < h; y++) {
   for (let x = 0; x < w; x++) {
-    if (grid[y][x] !== '@') continue;
+    if (grid[y][x] !== "@") continue;
     let nearby = 0;
     for (let [dx, dy] of deltas) {
-      if (['@', 'X'].includes(((grid[y+dy]??[])[x+dx] ?? '.'))) {
+      if (["@", "X"].includes((grid[y + dy] ?? [])[x + dx] ?? ".")) {
         nearby++;
       }
     }
     if (nearby < 4) {
       counter++;
-      grid[y][x] = 'X';
+      grid[y][x] = "X";
     }
   }
 }
 
-console.log(grid.map((line) => line.join('')).join('\n'));
+console.log(grid.map((line) => line.join("")).join("\n"));
 
-console.log('Answer', counter);
+console.log("Answer", counter);
